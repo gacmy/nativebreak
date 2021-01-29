@@ -42,7 +42,7 @@ rule CXX_SHARED_LIBRARY_LINKER__testcrash
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -H/Users/gacmy/company/code/NativeBreak/testcrash/src/main/cpp -B/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86
+  command = /Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -H/Users/gacmy/git/nativebreak/testcrash/src/main/cpp -B/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86
   description = Re-running CMake...
   generator = 1
 

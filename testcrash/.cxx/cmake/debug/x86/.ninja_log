@@ -1,4 +1,0 @@
-# ninja log v5
-1	325	1611884627	CMakeFiles/testcrash.dir/test_crash_jni.cpp.o	cbb2d914dd92842d
-325	479	1611884627	/Users/gacmy/company/code/NativeBreak/testcrash/build/intermediates/cmake/debug/obj/x86/libtestcrash.so	1572e39832ad2974
-8	1205	1611887669	/Users/gacmy/company/code/NativeBreak/testcrash/build/intermediates/cmake/debug/obj/x86/libtestcrash.so	1572e39832ad2974

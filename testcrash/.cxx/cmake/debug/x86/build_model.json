@@ -5,9 +5,9 @@
     "environmentVariables": []
   },
   "cmake": {
-    "cmakeArtifactsBaseFolder": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86",
-    "cmakeServerLogFile": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86/cmake_server_log.txt",
-    "cmakeWrappingBaseFolder": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cxx/debug/x86",
+    "cmakeArtifactsBaseFolder": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86",
+    "cmakeServerLogFile": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86/cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cxx/debug/x86",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -15,7 +15,7 @@
       "inheritEnvironments": [
         "ndk"
       ],
-      "buildRoot": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86",
+      "buildRoot": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86",
       "cmakeToolchain": "/Users/gacmy/Library/Android/sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake",
       "cmakeExecutable": "/Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake",
       "variables": [
@@ -25,7 +25,7 @@
         },
         {
           "name": "CMAKE_FIND_ROOT_PATH",
-          "value": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/prefab/x86/prefab"
+          "value": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/prefab/x86/prefab"
         },
         {
           "name": "CMAKE_BUILD_TYPE",
@@ -61,7 +61,7 @@
         },
         {
           "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
-          "value": "/Users/gacmy/company/code/NativeBreak/testcrash/build/intermediates/cmake/debug/obj/x86"
+          "value": "/Users/gacmy/git/nativebreak/testcrash/build/intermediates/cmake/debug/obj/x86"
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
@@ -78,14 +78,14 @@
       ]
     }
   },
-  "cxxBuildFolder": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86",
+  "cxxBuildFolder": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86",
   "info": {
     "abi": "X86",
     "bitness": 32,
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86",
+  "originalCxxBuildFolder": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86",
   "variant": {
     "buildSystemArgumentList": [],
     "buildTargetSet": [],
@@ -104,12 +104,12 @@
         "ninjaExe": "/Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja"
       },
       "cmakeToolchainFile": "/Users/gacmy/Library/Android/sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake",
-      "cxxFolder": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx",
+      "cxxFolder": "/Users/gacmy/git/nativebreak/testcrash/.cxx",
       "gradleModulePathName": ":testcrash",
-      "intermediatesFolder": "/Users/gacmy/company/code/NativeBreak/testcrash/build/intermediates",
-      "makeFile": "/Users/gacmy/company/code/NativeBreak/testcrash/src/main/cpp/CMakeLists.txt",
-      "moduleBuildFile": "/Users/gacmy/company/code/NativeBreak/testcrash/build.gradle",
-      "moduleRootFolder": "/Users/gacmy/company/code/NativeBreak/testcrash",
+      "intermediatesFolder": "/Users/gacmy/git/nativebreak/testcrash/build/intermediates",
+      "makeFile": "/Users/gacmy/git/nativebreak/testcrash/src/main/cpp/CMakeLists.txt",
+      "moduleBuildFile": "/Users/gacmy/git/nativebreak/testcrash/build.gradle",
+      "moduleRootFolder": "/Users/gacmy/git/nativebreak/testcrash",
       "ndkDefaultAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",
@@ -173,13 +173,12 @@
       "ndkDefaultStl": "LIBCXX_STATIC",
       "ndkVersion": "21.1.6352462",
       "project": {
-        "compilerSettingsCacheFolder": "/Users/gacmy/company/code/NativeBreak/.cxx",
-        "cxxFolder": "/Users/gacmy/company/code/NativeBreak/.cxx",
-        "ideBuildTargetAbi": "x86,armeabi-v7a,armeabi",
+        "compilerSettingsCacheFolder": "/Users/gacmy/git/nativebreak/.cxx",
+        "cxxFolder": "/Users/gacmy/git/nativebreak/.cxx",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
-        "rootBuildGradleFolder": "/Users/gacmy/company/code/NativeBreak",
+        "rootBuildGradleFolder": "/Users/gacmy/git/nativebreak",
         "sdkFolder": "/Users/gacmy/Library/Android/sdk",
         "isPrefabEnabled": false
       },
@@ -196,13 +195,16 @@
         "SYSTEM": {}
       }
     },
-    "objFolder": "/Users/gacmy/company/code/NativeBreak/testcrash/build/intermediates/cmake/debug/obj",
+    "objFolder": "/Users/gacmy/git/nativebreak/testcrash/build/intermediates/cmake/debug/obj",
     "variantName": "debug",
     "validAbiList": [
-      "X86"
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
     ],
-    "prefabDirectory": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/prefab",
+    "prefabDirectory": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/prefab",
     "prefabPackageDirectoryList": []
   },
-  "prefabFolder": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/prefab/x86"
+  "prefabFolder": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/prefab/x86"
 }

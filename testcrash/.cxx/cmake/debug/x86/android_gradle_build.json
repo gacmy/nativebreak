@@ -1,38 +1,38 @@
 {
   "stringTable": {
-    "0": "/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86",
+    "0": "/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86",
     "1": "--target=i686-none-linux-android17 --gcc-toolchain=/Users/gacmy/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/gacmy/Library/Android/sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dtestcrash_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++11 -O0 -fno-limit-debug-info -fPIC"
   },
   "buildFiles": [
-    "/Users/gacmy/company/code/NativeBreak/testcrash/src/main/cpp/CMakeLists.txt",
+    "/Users/gacmy/git/nativebreak/testcrash/src/main/cpp/CMakeLists.txt",
     "/Users/gacmy/Library/Android/sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake",
     "/Users/gacmy/Library/Android/sdk/ndk/21.1.6352462/build/cmake/platforms.cmake"
   ],
   "cleanCommands": [
-    "/Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86\" clean"
+    "/Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86\" clean"
   ],
-  "buildTargetsCommand": "/Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "/Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja  -C \"/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "testcrash-Debug-x86": {
-      "buildCommand": "/Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86\" testcrash",
+      "buildCommand": "/Users/gacmy/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja -C \"/Users/gacmy/git/nativebreak/testcrash/.cxx/cmake/debug/x86\" testcrash",
       "buildType": "debug",
       "toolchain": "2975198728",
       "abi": "x86",
       "artifactName": "testcrash",
       "files": [
         {
-          "src": "/Users/gacmy/company/code/NativeBreak/testcrash/src/main/cpp/test_crash_jni.cpp",
+          "src": "/Users/gacmy/git/nativebreak/testcrash/src/main/cpp/test_crash_jni.cpp",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }
       ],
       "headers": [
         {
-          "header": "/Users/gacmy/company/code/NativeBreak/testcrash/src/main/cpp/test_crash_jni.h",
+          "header": "/Users/gacmy/git/nativebreak/testcrash/src/main/cpp/test_crash_jni.h",
           "workingDirectoryOrdinal": 0
         }
       ],
-      "output": "/Users/gacmy/company/code/NativeBreak/testcrash/build/intermediates/cmake/debug/obj/x86/libtestcrash.so",
+      "output": "/Users/gacmy/git/nativebreak/testcrash/build/intermediates/cmake/debug/obj/x86/libtestcrash.so",
       "runtimeFiles": []
     }
   },

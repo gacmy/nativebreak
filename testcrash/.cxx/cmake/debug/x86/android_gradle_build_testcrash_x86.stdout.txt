@@ -1,2 +1,0 @@
-ninja: Entering directory `/Users/gacmy/company/code/NativeBreak/testcrash/.cxx/cmake/debug/x86'
-[1/1] Linking CXX shared library /Users/gacmy/company/code/NativeBreak/testcrash/build/intermediates/cmake/debug/obj/x86/libtestcrash.so
