@@ -1,0 +1,4 @@
+include ':testcrash'
+include ':nativecatch'
+include ':app'
+rootProject.name = "NativeBreak"

@@ -1,0 +1,146 @@
+#### 环境ubuntu
+1. 这里我用ndk的cmake命令行编译的，没有使用android studio gradle(ide使用vim)
+2. 使用cmakeAndroid.sh命令进行编译（cmakeAndroid.sh 只能一个abi 一个abi的编译，不能同时指定多个） 需要替换ndk路径 指定abi x86 因为用的是模拟器测试的
+3. android studio 生成的release so 会strip symbol，cmake 没有剥离
+4. 需要相同的环境生成so，一份无符号的 一份有符号的，然后把有符号的保存，生成堆栈的脚本通过addr2line(man addr2line 获取用法)命令获取报错信息和堆栈信息。
+5. /sdcard/crash.sh 生成脚本上传服务器 crash.sh 库文件 就可以获取报错的日志信息。(如果保存信息在几个so文件里面)   \
+   需要每一个可疑的so都需用脚本生成日志文件
+
+  (仅仅学习native 崩溃捕捉的原理流程，不能用于生产环境。因为代码垃圾)
+
+> 参考链接
+#### reference
+1. https://www.kymjs.com/code/2018/08/22/01/
+2. https://mp.weixin.qq.com/s/g-WzYF3wWAljok1XjPoo7w?
+3. https://time.geekbang.org/column/article/70602
+4. https://www.jianshu.com/p/58d32fbd8dfa
+5. https://www.nongnu.org/libunwind/man/libunwind(3).html
+
+1. native层崩溃主要是通过信号来捕捉的。(Linux系统编程手册 第20 21 22章)所以有下面的函数，coffecatch里拿过来的 ><
+```
+static const char* catch_desc_sig(int sig,int code){
+  switch(sig){
+    case SIGILL:
+      switch(code){
+        case ILL_ILLOPC:
+          return "illegal opcode";
+        case ILL_ILLOPN:
+          return "illegal operand";
+        case ILL_ILLADR:
+          return "illegal addressing mode";
+        case ILL_ILLTRP:
+          return "illegal trap";
+        case ILL_PRVOPC:
+          return "privileged opcode";
+        case ILL_PRVREG:
+          return "privileged register";
+        case ILL_COPROC:
+          return "copprocessor error";
+        case ILL_BADSTK:
+          return "internal stack error";
+        default:
+          return "illegal operation";
+
+      }
+      break;
+    case SIGFPE:
+      switch(code){
+        case FPE_INTDIV:
+          return "integer divided by zero";
+        case FPE_INTOVF:
+          return "intger overflow";
+        case FPE_FLTDIV:
+          return "floatting-point divided by zero";
+        case FPE_FLTOVF:
+          return "floatting-point overflow";
+        case FPE_FLTUND:
+          return "floatting-point underflow";
+        case FPE_FLTRES:
+          return "floatting-point inexact result";
+        case FPE_FLTINV:
+          return "invalid floatting-point operation";
+        case FPE_FLTSUB:
+          return "subscript out of range";
+        default:
+          return "floatting-point";
+      }
+      break;
+    case SIGSEGV:
+      switch(code){
+        case SEGV_MAPERR:
+          return "address not mapped to object";
+        case SEGV_ACCERR:
+          return "invalid permission for mapped object";
+        default:
+          return "segmentation violation";
+
+      }
+      break;
+    case SIGBUS:
+      switch(code){
+        case BUS_ADRALN:
+          return "invalid address alignment";
+        case BUS_ADRERR:
+          return "nonexistent pysical address";
+        case BUS_OBJERR:
+          return "Object-specfic hardware error";
+        default:
+          return "bus error";
+      }
+      break;
+    default:
+      return "unknow error";
+  }
+}
+
+```
+
+2. 全局变量保存崩溃信息
+```
+struct crash_msg{
+  int size;//函数调用堆栈数组的大小
+  int total;//总的字节数
+  unsigned long ocurraddr;//发生的奔溃的地址
+  long* funcAddrs;//函数调用堆栈的地址 数组
+  const char* msg;//相关信号的内容信息
+}crash_msg;
+
+```
+
+3. 获取堆栈信息，信号捕捉的时候，上面引用博客提到了使用系统的unwind库或者libunwind库 \
+(https://github.com/xroche/coffeecatch/blob/master/coffeecatch.c)兼容了三种方式 \
+使用系统自带的unwind库,使用libunwind库,使用libcorkscrew 这里我使用的是unwind库(因为我不熟><) \
+
+
+```
+void signal_handler(const int code,siginfo_t *const si,void *const sc){
+  LOGD("caught singal\n");
+  signal(code, SIG_DFL);
+  alarm(30);
+
+  struct crash_msg error;
+  //根据信号回调函数 si获取 产生奔溃信号的原因
+  const char* msg = catch_desc_sig(code, si->si_code);
+
+  error.msg = msg;
+  //获取函数调用栈的偏移地址
+  getStackBuffer(&error);
+  error.total+=strlen(msg)+1;
+  //sc 里包含了奔溃时候的环境上下文，我们可以获取内存地址
+  uintptr_t pc = pc_from_ucontext(reinterpret_cast<const ucontext_t *>(sc));
+  //获取发生奔溃的偏移地址
+  getOccuredAddr((unsigned long long int*)pc, &error);
+
+  //LOGD("write error total %d\n",error.total);
+  //生成crash.sh脚本 crash.sh脚本可以通过addr2line命令 将偏移地址转换成文件和函数名 行号
+  writeFile(&error);
+
+  free(error.funcAddrs);
+
+  LOGD("signal msg:%s\n",msg);
+      //cleanup();
+  cleanup();
+  //exit(0);
+
+}
+```

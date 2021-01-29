@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/gacmy/project/android_lib/android_catch_break/build",
+  "command": "/home/gacmy/programs/ndk21/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/gacmy/programs/ndk21/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/gacmy/programs/ndk21/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Dcatch_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -fPIC   -o CMakeFiles/catch.dir/catchbreak.cpp.o -c /home/gacmy/project/android_lib/android_catch_break/catchbreak.cpp",
+  "file": "/home/gacmy/project/android_lib/android_catch_break/catchbreak.cpp"
+},
+{
+  "directory": "/home/gacmy/project/android_lib/android_catch_break/build",
+  "command": "/home/gacmy/programs/ndk21/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=armv7-none-linux-androideabi16 --gcc-toolchain=/home/gacmy/programs/ndk21/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/gacmy/programs/ndk21/toolchains/llvm/prebuilt/linux-x86_64/sysroot  -Dcatch_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -fPIC   -o CMakeFiles/catch.dir/native-bridge.cpp.o -c /home/gacmy/project/android_lib/android_catch_break/native-bridge.cpp",
+  "file": "/home/gacmy/project/android_lib/android_catch_break/native-bridge.cpp"
+}
+]
